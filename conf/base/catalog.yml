@@ -19,4 +19,9 @@ base_test:
   type: pandas.ParquetDataset
   filepath: data/processed/base_test.parquet
 
-
+# Saída com os resultados da aplicação do modelo
+previsoes_producao:
+  type: pandas.ParquetDataset
+  filepath: data/08_reporting/previsoes_producao.parquet
+  save_args:
+    index: False
