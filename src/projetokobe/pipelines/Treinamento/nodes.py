@@ -5,6 +5,8 @@ from pycaret.classification import setup, create_model, tune_model, get_config
 from sklearn.metrics import log_loss, f1_score
 from imblearn.over_sampling import SMOTE
 from pathlib import Path
+import shutil  # ✅ Adicionado para remover pasta existente
+from pycaret.classification import finalize_model, save_model
 
 def treinar_melhor_modelo(df_train: pd.DataFrame, df_test: pd.DataFrame) -> None:
     """
@@ -83,10 +85,20 @@ def treinar_melhor_modelo(df_train: pd.DataFrame, df_test: pd.DataFrame) -> None
         registered_model_name="ModeloArremessoKobe"
     )
 
-    # Salva localmente o modelo treinado
+    # Caminho local para salvar o modelo
     local_model_path = Path("data/06_models/modelo_vencedor")
+
+    # ✅ Remove pasta anterior se já existir
+    if local_model_path.exists():
+        shutil.rmtree(local_model_path)
+
+    # Cria pasta novamente
     local_model_path.mkdir(parents=True, exist_ok=True)
+
+    # Salva o modelo localmente
     mlflow.sklearn.save_model(sk_model=modelo_final, path=str(local_model_path))
+    modelo_final = finalize_model(modelo_final)
+    save_model(modelo_final, model_name="modelo_vencedor")  
 
     print(f"✅ Modelo escolhido: {modelo_vencedor}")
     print(f"📦 Modelo salvo localmente em: {local_model_path.resolve()}")

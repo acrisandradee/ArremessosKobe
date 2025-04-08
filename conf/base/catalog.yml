@@ -2,6 +2,7 @@
 #
 # Documentation for this file format can be found in "The Data Catalog"
 # Link: https://docs.kedro.org/en/stable/data/data_catalog.html
+
 dataset_kobe_dev:
   type: pandas.ParquetDataset
   filepath: data/01_raw/dataset_kobe_dev.parquet
@@ -9,7 +10,6 @@ dataset_kobe_dev:
 data_filtered:
   type: pandas.ParquetDataset
   filepath: data/02_intermediate/data_filtered.parquet
-
 
 base_train:
   type: pandas.ParquetDataset
@@ -23,5 +23,15 @@ base_test:
 previsoes_producao:
   type: pandas.ParquetDataset
   filepath: data/08_reporting/previsoes_producao.parquet
+  save_args:
+    index: False
+
+dataset_kobe_prod_path:
+  type: pandas.ParquetDataset
+  filepath: data/01_raw/dataset_kobe_prod.parquet
+
+predicoes_prod_path:
+  type: pandas.ParquetDataset
+  filepath: data/07_model_output/predicoes_prod.parquet
   save_args:
     index: False
