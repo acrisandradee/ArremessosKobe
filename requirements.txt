@@ -6,7 +6,7 @@
 #
 adagio==0.2.6
     # via fugue
-aiofiles==23.2.1
+aiofiles==24.1.0
     # via gradio
 alembic==1.15.2
     # via mlflow
@@ -58,11 +58,11 @@ blinker==1.9.0
     # via
     #   flask
     #   streamlit
-blosc2==3.2.1
+blosc2==3.3.0
     # via tables
-boto3==1.37.28
+boto3==1.37.31
     # via pycaret
-botocore==1.37.28
+botocore==1.37.31
     # via
     #   boto3
     #   s3transfer
@@ -239,7 +239,7 @@ googleapis-common-protos==1.69.2
     # via
     #   google-api-core
     #   grpcio-status
-gradio==5.23.3
+gradio==5.24.0
     # via pycaret
 gradio-client==1.8.0
     # via gradio
@@ -278,7 +278,7 @@ httpx==0.28.1
     #   jupyterlab
     #   litestar
     #   safehttpx
-huggingface-hub==0.30.1
+huggingface-hub==0.30.2
     # via
     #   gradio
     #   gradio-client
@@ -299,7 +299,7 @@ importlib-resources==6.5.2
     # via kedro
 ipykernel==6.29.5
     # via jupyterlab
-ipython==9.0.2
+ipython==9.1.0
     # via
     #   -r requirements.in
     #   ipykernel
@@ -385,7 +385,7 @@ jupyter-server==2.15.0
     #   notebook-shim
 jupyter-server-terminals==0.5.3
     # via jupyter-server
-jupyterlab==4.3.6
+jupyterlab==4.4.0
     # via
     #   -r requirements.in
     #   notebook
@@ -421,7 +421,7 @@ lazy-loader==0.4
     # via kedro-datasets
 lightgbm==4.6.0
     # via pycaret
-litestar==2.15.1
+litestar==2.15.2
     # via evidently
 litestar-htmx==0.4.1
     # via litestar
@@ -476,13 +476,13 @@ msgpack==1.1.0
     # via blosc2
 msgspec==0.19.0
     # via litestar
-multidict==6.3.2
+multidict==6.2.0
     # via litestar
 multipart==1.2.1
     # via litestar
 mypy-extensions==1.0.0
     # via typing-inspect
-narwhals==1.33.0
+narwhals==1.34.1
     # via altair
 nbclient==0.10.2
     # via nbconvert
@@ -500,13 +500,13 @@ nest-asyncio==1.6.0
     # via ipykernel
 nltk==3.9.1
     # via evidently
-notebook==7.3.3
+notebook==7.4.0
     # via -r requirements.in
 notebook-shim==0.2.4
     # via
     #   jupyterlab
     #   notebook
-numba==0.61.0
+numba==0.61.2
     # via
     #   pycaret
     #   pyod
@@ -707,7 +707,7 @@ pycaret[mlops,models]==3.3.2
     # via -r requirements.in
 pycparser==2.22
     # via cffi
-pydantic==2.11.2
+pydantic==2.11.3
     # via
     #   evidently
     #   fastapi
@@ -1074,7 +1074,7 @@ watchdog==6.0.0
     # via
     #   evidently
     #   streamlit
-watchfiles==1.0.4
+watchfiles==1.0.5
     # via uvicorn
 wcwidth==0.2.13
     # via prompt-toolkit
