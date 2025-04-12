@@ -1,5 +1,5 @@
 from kedro.pipeline import Pipeline, node, pipeline
-from .nodes import preparar_dados
+from .nodes import preparar_dados, separar_treino_teste
 
 def create_pipeline(**kwargs) -> Pipeline:
     return pipeline([
@@ -8,5 +8,11 @@ def create_pipeline(**kwargs) -> Pipeline:
             inputs="dataset_kobe_dev",
             outputs="data_filtered",
             name="preparar_dados_node"
+        ),
+        node(
+            func=separar_treino_teste,
+            inputs="data_filtered",
+            outputs=["base_train", "base_test"],
+            name="separar_treino_teste_node"
         )
     ])
