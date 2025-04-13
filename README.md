@@ -79,7 +79,7 @@
 | Visualização / Dashboard   | previsoes_producao.parquet        | data/08_reporting/               | Dados de predições formatados para uso no dashboard de monitoramento com Streamlit. |
 
 ## 🔍Observacao sobre o modelo na nova base
-- Observou-se um dataset shift entre a base de treino principalmente arremessos curtos e a base de produção erremessos de 3 pontos. Essa diferença na distribuição foi evidenciada via histogramas comparativos, e impactou diretamente a performance em produção.
+- Observei que ha diferencas entre a base de treino principalmente arremessos curtos e a base de produção erremessos de 3 pontos. Essa diferença na distribuição foi evidenciada via histogramas comparativos, e impactou diretamente a performance em produção.
 - Exemplo: F1 Score caiu de 0.72 (dev) para próximo de zero em testes anteriores.
 
   ![image](https://github.com/user-attachments/assets/e65b0a21-b11d-41a4-9f9a-94132bb7ccbc)
@@ -87,11 +87,40 @@
 # 📊 Monitoramento da Saúde do Modelo
 
 ## Com a variavel resposta
-Quando a variável shot_made_flag está disponível, é possível realizar um monitoramento completo do desempenho do modelo:
+Quando temos a informação se o arremesso foi certo ou errado (shot_made_flag), podemos:
 
-- Cálculo direto de métricas como F1 Score e Log Loss
-- Comparação entre os valores reais e preditos, permitindo detectar erros e padrões de desempenho
-- Identificação de possíveis derivas de dados, como mudanças no comportamento dos arremessos ao longo do tempo
+- Cálcular  métricas como F1 Score e Log Loss
+- Comparar valores reais e preditos, permitindo detectar erros e padrões de desempenho
+- Identificar mudanças no comportamento dos dados com o tempo 
 
+## Sem a variavel resposta
+Quando não sabemos se o arremesso foi acertado:
 
+- Analisamos a distribuição dos scores (confiança nas previsões) para ver se o modelo continua coerente
+- Usamos dashboards e logs para acompanhar como o modelo está se comportando
+
+# 🔁 Estratégias de Retreinamento do Modelo
+## Estrategia Reativa
+Essa abordagem e usada quando observamos uma queda significativa nas métricas de desempenho, como F1 Score ou Log Loss.
+- tipo se o modelo comecar a erra muito nos arremessos
+- Entao coletamos novos dados rotulados, atualizamos a base de treino e reexecutamos o pipeline para gerar uma nova versão do modelo.
+
+  ## Estrategia Preditiva
+  Neste o retreinamento é feito de forma periódica ou automática, mesmo que o modelo ainda esteja performando bem.
+  - Atualizamos o modelo a cada epoca com dados mais recentes
+  -  ou pipeline pode ser agendado para incluir novos dados. reavaliar a performance e se estiver melhor, publicar uma nova versão no MLflow Registry.
+
+  
+ 
+---
+
+<div align="center">
+
+✨ Desenvolvido por **Cristina Andrade** – 2025  
+🔧 Projeto de **Engenharia de Machine Learning** baseado no Framework TDSP (Microsoft)  
+📦 Da ideia ao deploy com **Kedro**, **PyCaret**, **MLflow** e **Streamlit**
+
+</div>
+
+  
 
