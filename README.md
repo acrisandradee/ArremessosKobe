@@ -44,6 +44,8 @@
 8. Execute o Dashboard no Streamlit
    
         streamlit run dashboard/app.py
+   
+![image](https://github.com/user-attachments/assets/5994f80b-d5d8-4a4b-9830-931c688c1ae4)
 
 
 # 💡 Como as Ferramentas Auxiliam no Pipeline
