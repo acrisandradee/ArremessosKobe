@@ -78,12 +78,25 @@ def treinar_melhor_modelo(df_train: pd.DataFrame, df_test: pd.DataFrame) -> None
 
     mlflow.log_param("modelo_vencedor", modelo_vencedor)
 
-    # Registro no MLflow Model Registry
-    mlflow.sklearn.log_model(
+        # Registro no MLflow Model Registry
+    result = mlflow.sklearn.log_model(
         sk_model=modelo_final,
         artifact_path="modelo_vencedor",
         registered_model_name="ModeloArremessoKobe"
     )
+
+    # Atribuir alias 'prod' à versão mais recente
+    from mlflow import MlflowClient
+    client = MlflowClient()
+
+    # Obtém a versão da última adição
+    latest_versions = client.get_latest_versions("ModeloArremessoKobe", stages=["None"])
+    if latest_versions:
+        version = latest_versions[0].version
+        client.set_registered_model_alias("ModeloArremessoKobe", "prod", version)
+        print(f"🔁 Alias 'prod' atribuído à versão {version}")
+    else:
+        print("⚠️ Nenhuma versão encontrada para atribuir alias.")
 
     # Caminho local para salvar o modelo
     local_model_path = Path("data/06_models/modelo_vencedor")
