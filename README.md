@@ -23,21 +23,25 @@
              source .venv/bin/activate  # Linux/macOS
              .venv\Scripts\activate   # Windows
 
+  4. Instale as dependências do projeto
+
+          pip install -r requirements.txt
+ 
   5.  Acesse a pasta do projeto
      
              cd projetokobe
       
-  5. Execute as pipelines com Kedro
+  6. Execute as pipelines com Kedro
      
     kedro run --pipeline=PreparacaoDados
     kedro run --pipeline=treinamento
     kedro run --pipeline=aplicacao
 
-5. Execute o MLFlow
+7. Execute o MLFlow
    
         Mlflow ui
 
-7. Execute o Dashboard no Streamlit
+8. Execute o Dashboard no Streamlit
    
         streamlit run dashboard/app.py
 
