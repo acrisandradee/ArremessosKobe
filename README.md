@@ -21,35 +21,30 @@
   1. Clone o Repositório
 
          git clone https://github.com/acrisandradee/ArremessosKobe.git
-  
- 3. Acesse a pasta principal
-  - cd caminho/para/MYPROJECT/
-    
-  3. Ative o ambiente virtual
+
+      
+  2. Ative o ambiente virtual
      
              python -m venv .venv
              source .venv/bin/activate  # Linux/macOS
              .venv\Scripts\activate   # Windows
 
-  4. Instale as dependências do projeto
+  3. Instale as dependências do projeto
 
           pip install -r requirements.txt
  
-  5.  Acesse a pasta do projeto
-     
-             cd projetokobe
       
-  6. Execute as pipelines com Kedro
+  4. Execute as pipelines com Kedro
      
     kedro run --pipeline=PreparacaoDados
     kedro run --pipeline=treinamento
     kedro run --pipeline=aplicacao
 
-7. Execute o MLFlow
+5. Execute o MLFlow
    
         Mlflow ui
 
-8. Execute o Dashboard no Streamlit
+6. Execute o Dashboard no Streamlit
    
         streamlit run dashboard/app.py
    
