@@ -129,6 +129,9 @@ Essa abordagem e usada quando observamos uma queda significativa nas métricas d
 <div align="center">
 
 ✨ Desenvolvido por **Cristina Andrade** – 2025  
+
+Engenheira da Computação - CREA 2024107872
+
    Projeto de **Engenharia de Machine Learning** baseado no Framework TDSP (Microsoft)  
    Da ideia ao deploy com **Kedro**, **PyCaret**, **MLflow** e **Streamlit**
 
